@@ -17,6 +17,8 @@
 
 	foreach ($data[topics] as $interest)
 		$interestList[] = $interest;
+
+	
 	
 	$finalList[name] = $name;
 	$finalList[interests] = $interestList;
