@@ -21,7 +21,7 @@ $sql_con= "INSERT INTO `user` SET
  		$sql_query= "SELECT `id` FROM `user` WHERE `email`='$email'";
   		$res= $mysqli->query($sql_query);
   		$data= $res->fetch_assoc();
-  		$user_id= $data[`id`];
+  		$user_id= $data[`user_id`];
   		$i= 0;
   		while($i<$size)
   		{
