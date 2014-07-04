@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("lib/connection.php");
 
 $email= $_REQUEST['email'];
 $name= $_REQUEST['name'];
@@ -36,6 +36,7 @@ $sql_con= "INSERT INTO `user` SET
   				$output['id']= $user_id;
 
   				$outputJson= json_encode($output);
+  				echo $outputJson;
   			}
   		}
   		
