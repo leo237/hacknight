@@ -4,7 +4,8 @@ include("connection.php");
 $email= $_REQUEST['email'];
 $name= $_REQUEST['name'];
 $intr= $_REQUEST['interest'];
-$location= $_REQUEST['location'];
+$lon= $_REQUEST['lon'];
+$lat= $_REQUEST['lat'];
 
 $interest= explode(",", $intr);
 $size= sizeof($interest);
@@ -12,7 +13,8 @@ $size= sizeof($interest);
 $sql_con= "INSERT INTO `user` SET 
   			`name`= '$name',
   			`email`= '$email',
-  			`location`= '$location'";
+  			`lon`= '$lon'.
+  			`lat`= '$lat'";
  $res= $mysqli->query($sql_con);
  if($res)
  {
