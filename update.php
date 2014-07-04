@@ -1,5 +1,5 @@
 <?php
-include("lib/connection.php");
+include("connection.php");
 
 $email= $_REQUEST['email'];
 $name= $_REQUEST['name'];
@@ -18,7 +18,7 @@ $sql_con= "INSERT INTO `user` SET
  $res= $mysqli->query($sql_con);
  if($res)
  {
- 		$sql_query= "SELECT `id` FROM `user` WHERE `email`='$email'";
+ 		$sql_query= "SELECT `user_id` FROM `user` WHERE `email`='$email'";
   		$res= $mysqli->query($sql_query);
   		$data= $res->fetch_assoc();
   		$user_id= $data[`user_id`];
