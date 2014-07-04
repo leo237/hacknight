@@ -13,14 +13,14 @@ $size= sizeof($interest);
 $sql_con= "INSERT INTO `user` SET 
   			`name`= '$name',
   			`email`= '$email',
-  			`lon`= '$lon'.
+  			`lon`= '$lon',
   			`lat`= '$lat'";
  $res= $mysqli->query($sql_con);
  if($res)
  {
  		$sql_query= "SELECT `id` FROM `user` WHERE `email`='$email'";
   		$res= $mysqli->query($sql_query);
-  		$data= $fetch_assoc($res);
+  		$data= $res->fetch_assoc();
   		$user_id= $data[`id`];
   		$i= 0;
   		while($i<$size)
