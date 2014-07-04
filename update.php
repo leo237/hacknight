@@ -29,7 +29,12 @@ $sql_con= "INSERT INTO `user` SET
   					`user_id`= '$user_id'";
   			$res1= $mysqli->query($sql_con);
   			if($res1)
-  				echo "Success";
+  			{
+  				$output['msg']= "Success";
+  				$output['id']= $user_id;
+
+  				$outputJson= json_encode($output);
+  			}
   		}
   		
  }
