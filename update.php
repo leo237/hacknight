@@ -18,10 +18,11 @@ $sql_con= "INSERT INTO `user` SET
  $res= $mysqli->query($sql_con);
  if($res)
  {
- 		$sql_query= "SELECT `user_id` FROM `user` WHERE `email`='$email'";
+ 		$sql_query= "SELECT * FROM `user` WHERE `email`='$email'";
   		$res= $mysqli->query($sql_query);
   		$data= $res->fetch_assoc();
-  		$user_id= $data[`user_id`];
+  		$user_id= $data['user_id'];
+  		$output['id']= $user_id;
   		$i= 0;
   		while($i<$size)
   		{
@@ -30,15 +31,13 @@ $sql_con= "INSERT INTO `user` SET
   					`interest`= '$inter',
   					`user_id`= '$user_id'";
   			$res1= $mysqli->query($sql_con);
-  			if($res1)
-  			{
-  				$output['msg']= "Success";
-  				$output['id']= $user_id;
-
-  				$outputJson= json_encode($output);
-  				echo $outputJson;
-  			}
+  			$i++;
   		}
+  		$output['msg']= "Success";
+  		$output['id']= $user_id;
+
+  		$outputJson= json_encode($output);
+  		echo $outputJson;
   		
  }
 ?>
