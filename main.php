@@ -63,12 +63,14 @@
 		
 		foreach ($interest as $int)
 		{
-			$url2 = "http://api.frrole.com/v1/curated-content?location=". $city. "&query=" . $int . "&apikey=hacknight-leo237-AfFmaAzclDx02JxylCbe53b7007e2b8c5";
+			//echo "HAPPENING!";
+			$url2 = "http://api.frrole.com/v1/curated-content?location=". $city. "+india&query=" . $int . "&apikey=hacknight-leo237-AfFmaAzclDx02JxylCbe53b7007e2b8c5";
 			$json = file_get_contents($url2);
 			$data = json_decode($json, true);
 			$count = 0;
 			foreach($data[results] as $details)
 			{
+					//echo "STILL HAPPENING";
 					$card[$i][name] = strip_tags($details[displayname]);
 					$card[$i][desc] = strip_tags($details[tweet_text]);
 					if ($details[entities] != NULL)
