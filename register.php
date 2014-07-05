@@ -10,22 +10,33 @@
 
 	$json = file_get_contents($url);
 	$data = json_decode($json, true);
-
-	$name = $data[name];
-
-	$interestList = array();
-
-	foreach ($data[topics] as $interest)
-		$interestList[] = $interest;
-
 	
+	echo $data[success];
 	
-	$finalList[name] = $name;
-	$finalList[interests] = $interestList;
+	if ($data[success])
+	{	
+		$name = $data[name];
 
-	$outputJson = json_encode($finalList);
+		$interestList = array();
 
-	echo $outputJson;
+		foreach ($data[topics] as $interest)
+			$interestList[] = $interest;
+		if ($data[profile_picture])	
+			$profilePicture = $data[profile_picture];
+		else
+			$profilePicture = NULL;
+		$finalList[name] = $name;
+		$finalList[interests] = $interestList;
+		$finalList[picture] = $profilePicture;
+
+		$outputJson = json_encode($finalList);
+
+		echo $outputJson;
+	}
+	else
+	{
+		echo "FAILURE";
+	}
 
 	//echo $json;
 ?>
