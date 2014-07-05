@@ -21,7 +21,7 @@
 	else
 		echo "FAIL";
 
-	if (strlen($queryString)> 1)
+	if (strlen($queryString)> 0)
 	{
 		$queryString = substr($queryString,0,-1);
 		//echo $queryString;
@@ -64,7 +64,7 @@
 		foreach ($interest as $int)
 		{
 			//echo "HAPPENING!";
-			$url2 = "http://api.frrole.com/v1/curated-content?location=". $city. "+india&query=" . $int . "&apikey=hacknight-leo237-AfFmaAzclDx02JxylCbe53b7007e2b8c5";
+			$url2 = "http://api.frrole.com/v1/curated-content?location=world&query=" . $int . "&apikey=hacknight-leo237-AfFmaAzclDx02JxylCbe53b7007e2b8c5";
 			$json = file_get_contents($url2);
 			$data = json_decode($json, true);
 			$count = 0;
@@ -83,7 +83,8 @@
 						break;
 			}
 		}
-		$finalJson = json_encode($card);
+		$cardObject[card] = $card;
+		$finalJson = json_encode($cardObject);
 		echo $finalJson;
 	}
 	else
