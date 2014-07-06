@@ -44,6 +44,7 @@
 
 
 		$url = "http://api.meetup.com/2/open_events.json/?text=" .$queryString. "&lat=". $latitude . "&lon=".$longitude ."&key=346e4b63223dc27f7241112b61705";
+		echo $url;
 		$json = file_get_contents($url);
 		$data = json_decode($json, true);
 
